@@ -1,10 +1,19 @@
 spring:
   datasource:
-    url: jdbc:postgresql://10.140.0.2:5432/postgresql
+    url: jdbc:postgresql://localhost:5432/postgresql
     username: postgresql
     password: postgrespassword
   jpa:
     show-sql: true
     hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      dialect: org.hibernate.dialect.PostgreSQL10Dialect
       ddl-auto: update
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: gcp
+  datasource:
+    url: jdbc:postgresql://10.140.0.2:5432/postgresql
